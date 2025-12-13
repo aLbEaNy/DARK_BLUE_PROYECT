@@ -157,6 +157,16 @@ Arquitectura del Proyecto
 ---
 ## 🎨 Multimedia, Recursos y Licencias
 
+<p>
+  <img src="./Docs/images/loginPhone.png" width="40%" />
+  <img src="./Docs/images/menuPhone.png" width="40%" />
+</p>
+
+<p>
+  <img src="./Docs/images/optionsPhone.png" width="40%" />
+  <img src="./Docs/images/gamePhone.png" width="40%" />
+</p>
+
 ### &nbsp;&nbsp;El proyecto utiliza:
 
  &nbsp;&nbsp;&nbsp;🖼️ Recursos gráficos
@@ -179,13 +189,40 @@ Arquitectura del Proyecto
 Instalación y Uso
 </h2>
 
-## &nbsp;📌 Frontend
+## &nbsp;📌 Instrucciones de Instalación
+
+###
 
 ```bash
-git clone https://github.com/tu_usuario/dark-blue.git
-cd dark-blue/dark-blue-front
-npm install
-ng serve
+
+1- git clone https://github.com/aLbEaNy/DARK_BLUE_PROYECT.git
+
+2- Crear base de datos en mongo darkBlueDB e importar las colecciones que estan en la carpeta BD_Mongo
+
+3- Restaurar en el frontend la carpeta node_modules (npm install) y ng serve
+	cd dark-blue/dark_blue_front
+	npm install
+	ng serve
+
+4- Restaurar target y dependencias de Spring,  levantarlo y listo
+	cd dark-blue/dark-blue-back
+	mvn clean install
+	mvn spring-boot:run
+
+NOTA: Mantener la estructura de rutas porque usa la carpeta storage para servir archivos media.
+ El proyecto se encuentra en: C:\DARK_BLUE_PROYECT  
+* Si es sobre LINUX habría que modificar en el back el application-properties:
+				|	
+				v
+#ALMACEN MULTIMEDIA
+storage.media.url=http://localhost:8080/media
+storage.media.base-path=C:\\DARK_BLUE_PROYECT\\storage\\media
+storage.media.audio-dir =${storage.media.base-path}\\audio
+storage.media.video-dir =${storage.media.base-path}\\video
+storage.media.images-dir =${storage.media.base-path}\\images
+storage.media.avatar-dir=${storage.media.base-path}\\images\\avatar
+
+(Opcional) Hay por si quereis usar 2 usuarios ya creados playe1@player1.es y player2@player2.es  con password Hola1234!
 
 ```
 --- 
@@ -193,6 +230,8 @@ ng serve
 <h2 style="color: #3bfa; font-size: 22px;">
 Créditos
 </h2>
+
+#### &nbsp;&nbsp; ==> [Más información sobre Dark Blue: Mar de Acero](./Docs/MEMORIA.md)
 
 #### &nbsp;&nbsp;Developed by:
 ### &nbsp;&nbsp;&nbsp;Alberto Tabernero Valle
@@ -207,5 +246,5 @@ Créditos
 
 &nbsp;&nbsp;&nbsp;&nbsp;🐙 GitHub: https://github.com/albeany
 
-### 💙 ¡Gracias por probar Dark Blue: Mar de Acero!
+## 💙 ¡Gracias por probar Dark Blue: Mar de Acero!
 ---
