@@ -29,4 +29,4 @@ storage.media.avatar-dir=${storage.media.base-path}\\images\\avatar
 
 Cualquier pregunta sin problema me mandais un mensaje.
 
-Salu2
+Salu2.
