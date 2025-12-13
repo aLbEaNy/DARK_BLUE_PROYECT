@@ -1,8 +1,16 @@
-1- Crear base de datos en mongo darkBlueDB e importar las colecciones que estan en la carpeta BD_Mongo
+1- git clone https://github.com/aLbEaNy/DARK_BLUE_PROYECT.git
 
-2- Restaurar en el frontend la carpeta node_modules (npm install) y ng serve
+2- Crear base de datos en mongo darkBlueDB e importar las colecciones que estan en la carpeta BD_Mongo
 
-3- Spring va con target en principio levantarlo y listo
+3- Restaurar en el frontend la carpeta node_modules (npm install) y ng serve
+	cd dark-blue/dark_blue_front
+	npm install
+	ng serve
+
+4- Restaurar target y dependencias de Spring,  levantarlo y listo
+	cd dark-blue/dark-blue-back
+	mvn clean install
+	mvn spring-boot:run
 
 NOTA: Mantener la estructura de rutas porque usa la carpeta storage para servir archivos media.
  El proyecto se encuentra en: C:\DARK_BLUE_PROYECT  
@@ -19,6 +27,6 @@ storage.media.avatar-dir=${storage.media.base-path}\\images\\avatar
 
 (Opcional) Hay por si quereis usar 2 usuarios ya creados playe1@player1.es y player2@player2.es  con password Hola1234!
 
- Cualquier pregunta sin problema me llamais o un mensaje
+Cualquier pregunta sin problema me mandais un mensaje.
 
- Salu2
+Salu2
