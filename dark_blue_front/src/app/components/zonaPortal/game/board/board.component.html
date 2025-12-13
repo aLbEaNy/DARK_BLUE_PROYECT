@@ -1,0 +1,27 @@
+<div #boardRef id="board" class="relative w-[346px] h-[346px] border-3 border-gray-800 rounded-sm mt-3 shadow-lg shadow-black justify-self-center">
+  <!-- Grid 10x10 -->
+  <div class="grid w-full h-full bg-blue-900"
+       
+       [style.gridTemplateColumns]="'repeat(10, ' + cellSize + 'px)'"
+       [style.gridTemplateRows]="'repeat(10, ' + cellSize + 'px)'">
+    @for (i of cells; track i) {
+      <div class="border border-gray-500"
+          [ngStyle]="getCellStyle(i)"
+      ></div>
+    }
+  </div>
+
+  <!-- Submarinos con CDK Drag -->
+  @for (sub of board()?.submarines; track sub.id) {
+    <img [src]="sub.isHorizontal ? 'images/submarine-H.png' : 'images/submarine-V.png'"
+         class="absolute hover:cursor-pointer shadow-black hover:scale-102 hover:shadow-2xl "
+        title="Haz doble clic para rotar"
+         [ngStyle]="getSubmarineStyle(sub)"
+         alt="submarino"
+         cdkDrag
+         [cdkDragBoundary]="'#board'"
+         (cdkDragEnded)="dropSubmarine($event, sub)"
+         (dblclick)="rotateSubmarine(sub)"
+         >
+  }
+</div>

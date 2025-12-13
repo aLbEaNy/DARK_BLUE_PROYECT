@@ -1,0 +1,64 @@
+<div class="w-[65vw] rounded-2xl bg-principal opacity-90 shadow-black shadow-xl border border-gray-800 p-6 mx-auto">
+  <div class="flex justify-end mb-2">
+    <button (click)="pagesService.pages.set('OPTIONS')" class="px-4 py-1 text-xs font-mono rounded-lg border border-[#00ffc8] text-[#00ffc8] bg-[#00ffc8]/10 
+               hover:bg-[#00ffc8]/20 transition shadow-black shadow-sm cursor-pointer">
+      ⬅ VOLVER
+    </button>
+  </div>
+  <!-- Título -->
+  <h1 class="text-center text-xl font-extrabold font-mono text-fluor tracking-widest mb-8 mt-3">
+    ESTADÍSTICAS DEL JUEGO
+  </h1>
+
+  <!-- Contenedor general -->
+  <div class="space-y-4 text-[0.8rem] font-semibold text-acero">
+
+    <!-- Nickname -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">NICKNAME</p>
+      <p class="text-white font-semibold">{{ perfil.nickname }}</p>
+    </div>
+
+    <!-- Fecha de alistamiento -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">FECHA DE ALISTAMIENTO</p>
+      <p class="text-white font-semibold">{{ perfil.stats.fechaRegistro | date:'dd/MM/yyyy' }}</p>
+    </div>
+
+    <!-- Tiempo de juego -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">TIEMPO DE JUEGO</p>
+      <p class="text-white font-semibold">{{ timeGamePlayed() }}</p>
+    </div>
+
+    <!-- Juegos jugados -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">JUEGOS JUGADOS</p>
+      <p class="text-white font-semibold">{{ gamesPlayed() }}</p>
+    </div>
+
+    <!-- Victorias -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">VICTORIAS</p>
+      <p class="text-white font-semibold">{{ perfil.stats.wins }}</p>
+    </div>
+
+    <!-- Derrotas -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">DERROTAS</p>
+      <p class="text-white font-semibold">{{ perfil.stats.losses }}</p>
+    </div>
+
+    <!-- Monedas -->
+    <div class="flex items-center justify-between border-b border-gray-700 pb-2">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">MONEDAS</p>
+      <p class="text-white font-semibold">{{ perfil.stats.coins }}</p>
+    </div>
+
+    <!-- Rango -->
+    <div class="flex items-center justify-between">
+      <p class="text-[#00ffc8] text-[0.7rem] font-bold">RANGO</p>
+      <p class="text-white font-semibold">{{ perfil.stats.rango }}</p>
+    </div>
+  </div>
+</div>

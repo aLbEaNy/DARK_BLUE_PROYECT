@@ -1,0 +1,54 @@
+<div class="flex justify-center">
+  <div class="flex-col justify-center mt-20 mb-20 sm:mt-6 sm:mb-4 md:mt-20 md:mb-20">
+    
+    <div class="mb-6">
+      <button
+        (mouseenter)="reproducirHover()"
+        (mouseleave)="stopHover()"
+        (click)="dispararTorpedo('NEWGAME')"
+        class="p-4 w-42 rounded-e-full bg-principal opacity-90 text-fluor font-bold btn-torpedo shadow-black transform transition duration-300 hover:scale-105 hover:shadow-lg border-1 hover:border-none"
+        [ngClass]="activePage() === 'NEWGAME' ? 'torpedo-active' : 'btn-vibrate'"
+      >
+        NUEVA PARTIDA
+      </button>
+    </div>
+
+    <div class="mb-6">
+      <button
+        (mouseenter)="reproducirHover()"
+        (mouseleave)="stopHover()"
+        (click)="dispararTorpedo('ONLINE')"
+        class="p-4 w-42 rounded-e-full bg-principal opacity-90 text-fluor font-bold btn-torpedo shadow-black transform transition duration-300 hover:scale-105 hover:shadow-lg border-1 hover:border-none"
+        [ngClass]="activePage() === 'ONLINE' ? 'torpedo-active' : 'btn-vibrate'"
+      >
+        ONLINE
+      </button>
+    </div>
+
+    <div class="mb-6">
+      <button
+        (mouseenter)="reproducirHover()"
+        (mouseleave)="stopHover()"
+        (click)="dispararTorpedo('OPTIONS')"
+        class="p-4 w-42 rounded-e-full bg-principal opacity-90 text-fluor font-bold btn-torpedo shadow-black transform transition duration-300 hover:scale-105 hover:shadow-lg border-1 hover:border-none"
+        [ngClass]="activePage() === 'OPTIONS' ? 'torpedo-active' : 'btn-vibrate'"
+      >
+        OPCIONES
+      </button>
+    </div>
+
+    <div>
+
+      <button
+        (mouseenter)="reproducirHover()"
+        (mouseleave)="stopHover()"
+        (click)="dispararTorpedo('SALIR')"
+        class="p-4 w-42 rounded-e-full bg-principal opacity-90 text-fluor font-bold btn-torpedo shadow-black transform transition duration-300 hover:scale-105 hover:shadow-lg border-1 hover:border-none"
+        [ngClass]="activePage() === 'SALIR' ? 'torpedo-active' : 'btn-vibrate'"
+      >
+        SALIR
+      </button>
+    </div>
+
+  </div>
+</div>
