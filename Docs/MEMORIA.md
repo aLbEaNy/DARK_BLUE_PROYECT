@@ -1,4 +1,4 @@
-# Memoria del Proyecto: Dark Blue: Mar de Acero
+<h1 style="color: #1187d6;">Dark Blue - Mar de Acero</h1>
 
 - **Autor:** Alberto Tabernero Valle  
 - **Ciclo:** Desarrollo de Aplicaciones Web

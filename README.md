@@ -10,7 +10,7 @@ Descripción del Proyecto
 
 &nbsp;&nbsp;El jugador puede enfrentarse a:
 
-- 🤖 **Una IA avanzada en modo campaña**
+- 🤖 **Un servicio de lógica para los disparos de IA en modo campaña**
 - 🌐 **Otros jugadores en tiempo real (player vs player) online**
 
 &nbsp;&nbsp;El título ofrece:
@@ -24,8 +24,8 @@ Descripción del Proyecto
 
 &nbsp;&nbsp;El proyecto está dividido en:
 
-- **Backend**: Spring Boot 3.5 + WebSockets + MongoDB
-- **Frontend**: Angular 19 + Tailwind + Signals + RxJS
+- **Backend**: Spring Boot 3.5 + MongoDB + servicio de archivos multimedia
+- **Frontend**: Angular 19
 
 ---
 
@@ -36,10 +36,12 @@ Tecnologías Principales
 ## &nbsp;🛠 Backend
 - **Java 17**
 - **Spring Boot 3.5**
-- Spring Security + JWT
+- Spring Security JWT
 - Spring WebSocket (STOMP)
 - Spring Data MongoDB
 - WebFlux
+- Static Resources
+- Lombok
 - Jakarta Validation
 - Spring Mail
 - Maven
@@ -50,8 +52,9 @@ Tecnologías Principales
 - RxJS
 - Tailwind CSS 4
 - SweetAlert2
-- STOMP + SockJS
-- Audio + animaciones CSS
+- STOMP
+- Animaciones CSS
+- Media service (Frontend y Backend)
 
 ---
 <h2 style="color: #3bfa; font-size: 22px;">
@@ -59,27 +62,25 @@ Funcionalidades Principales
 </h2>
 
 ## &nbsp;🔐 Autenticación y Seguridad
-- Registro con **doble factor de autenticación (2FA)**
+- Registro con doble factor de autenticación (2FA sobre email)
 - Login con JWT
-- Recuperación de contraseña
+- Recuperación de contraseña con (2FA sobre email)
 - Eliminación de cuenta
-- Protección de endpoints REST y WebSocket con roles
-
 ---
 
 ## &nbsp;🧑‍💻 Perfil del Jugador
 - Nivel y experiencia
 - Créditos virtuales
 - Estadísticas completas
-- Equipamiento, skins, inventario
-- Historial de partidas
+- Ajustes de perfil, nickname y avatar
+- Inventario de artículos
 
 ---
 
 ## &nbsp;🤖 Modo Campaña (Player vs IA)
-- IA inteligente con priorización de objetivos
+- Servicio con lógica inteligente con priorización de objetivos
 - Disparos progresivos
-- Uso de ataques especiales por la IA
+- Uso de ataques especiales inteligente
 - Recompensas de créditos para el jugador
 - Tablero autogenerado con submarinos aleatorios
 
@@ -87,6 +88,7 @@ Funcionalidades Principales
 
 ## &nbsp;🌐 Modo Online 1 vs 1 en Tiempo Real
 - Sincronización mediante WebSockets (STOMP)
+- Emparejamiento automático de partidas
 - Turnos, impactos y fallos en tiempo real
 - Ataques especiales completamente sincronizados
 - Chat interactivo dentro de la partida
@@ -95,35 +97,32 @@ Funcionalidades Principales
 ---
 
 ## &nbsp;🔫 Sistema de Ataques Especiales
-- **x2Shot** → doble disparo
-- **MultiShot** → varios impactos simultáneos
-- **LaserShot** → disparo en línea recta que revela/impacta casillas
+- **x2Shot** → Activa un disparo extra cada 3 fallos
+- **MultiShot** → Activa cada 4 fallos 5 impactos simultáneos con lógica inteligente 
+- **LaserShot** → Activa cada 5 fallos un disparo aleatorio que destruye toda una fila o columna
 
-Incluye efectos visuales, animaciones y sonidos exclusivos.
+#### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Incluye efectos visuales, animaciones y sonidos exclusivos.
 
 ---
 
 ## &nbsp;💬 Chat Integrado
 - Mensajería instantánea en partidas online
-- Envío de logs del sistema al usuario
-
+- Notificación mediante parpadeos (Si está cerrada la interface de chat)
 ---
 
 ## &nbsp;💰 Tienda Online
-- Compras con créditos virtuales y moneda real
-- Items: ataques especiales, skins, mejoras
-- Donaciones integradas
-
+- Compras con créditos virtuales y moneda real (próximamente)
+- Items: ataques especiales y donación al desarrollador
 ---
 
-## &nbsp;🗃️ Persistencia Completa en MongoDB
-&nbsp;&nbsp;&nbsp; Colecciones utilizadas:
+## &nbsp;🗃️ Persistencia Completa en MongoDB y local
+#### &nbsp;&nbsp;&nbsp;Colecciones utilizadas:
 
 - `users`
 - `games`
 - `perfiles`
 - `items`
-
+#### &nbsp;&nbsp;&nbsp;Persistencia de multimedia servida desde backend 
 ---
 <h2 style="color: #3bfa; font-size: 22px;">
 Arquitectura del Proyecto
