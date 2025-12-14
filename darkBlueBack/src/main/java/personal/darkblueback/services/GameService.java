@@ -27,20 +27,23 @@ public class GameService {
     private final SimpMessagingTemplate messagingTemplate;
     private final SpecialService specialService;
 
-
     public Game createNewGame(String nickname, String gameId) {
         Perfil perfil = perfilService.getPerfilByNickname(nickname);
-        //MODO HISTORIA
-        Game game = gameRepository.findById(gameId).orElse(new Game());
-            // Continua la partida
-            if (!gameId.isEmpty()) {
-                System.out.println("Continuando partida");
-                game.setWinner("player1");
-                int _stage = game.getStage();
-                game.setStage(_stage + 1);
-                System.out.println("-----------> GAME STAGE " + game.getStage());
-            } else {
-                System.out.println("Nueva partida");
+        System.out.println("gameId en createNewGame " + gameId);
+        System.out.println("nickname en createNewGame " + nickname);
+        Game game;
+        if (gameId != null && !gameId.isBlank()) {
+            game = gameRepository.findById(gameId)
+                    .orElseThrow(() -> new RuntimeException("Game no encontrado"));
+            // continuar partida
+            System.out.println("Continuando partida");
+            game.setWinner("player1");
+            int _stage = game.getStage();
+            game.setStage(_stage + 1);
+            System.out.println("-----------> GAME STAGE " + game.getStage());
+        } else {
+            game = new Game();
+            System.out.println("Nueva partida");
             //Nueva partida
                 gameRepository.deleteByPlayer1(nickname);// Borramos los games del user
                 game.setStage(1);

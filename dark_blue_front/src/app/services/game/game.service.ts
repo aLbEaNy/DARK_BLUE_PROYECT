@@ -19,10 +19,10 @@ import GameMessage from '../../models/GameMessage';
 export class GameService {
   private http = inject(HttpClient);
   storage = inject(StorageService);
-  gameDTO = signal<Game | null>(this.storage.get('gameDTO') || null);
+  gameDTO = signal<Game | null>(null);
   perfil = this.storage.get<any>('perfil');
   private baseUrl = window.__env.backendUrl;
-
+  
   me = computed(() => {
     const g = this.gameDTO();
     if (!g) return;
@@ -83,13 +83,19 @@ export class GameService {
       this.http.post<GameMessage>(`${this.baseUrl}/game/shoot`,{gameId, me, pos})
     );
   }
-
+  resetGame(){
+    this.gameDTO.set(null);
+    this.storage.remove('gameDTO');  
+  }
+  
   cancelGame(gameId: string) {
     return firstValueFrom( this.http.delete<IRestMessage>(
       `${this.baseUrl}/game/${gameId}`
     ));
   }
   exitGame(gameId: string) {
+    this.gameDTO.set(null);
+    this.storage.remove('gameDTO');
     return firstValueFrom(this.http.get<boolean>(
       `${this.baseUrl}/game/exit/${gameId}`
     ));

@@ -65,7 +65,7 @@ export class MainGameComponent implements OnInit {
   msgSocket = signal<GameMessage>({ phase: 'PLACEMENT' });
   private baseUrl = window.__env.backendUrl;
   perfil = this.perfilService.perfil;
-  page = signal('MENU');
+  page = signal('');
   pages = this.pagesService.pages;
   stageShow = computed(() => this.gameService.gameDTO()?.stage || 1);
   txtIntroBoos = [
@@ -109,6 +109,10 @@ export class MainGameComponent implements OnInit {
   }
 
   constructor() {
+    if (this.pagesService.pages() === 'MENU'){ // Resetea cuando viene de opciones ( evita bug )
+      window.location.reload();
+      this.pagesService.pages.set('');
+    }
     //Según el valor de page dispara la nueva partida
     effect(() => {
       const _page = this.page();
@@ -139,10 +143,10 @@ export class MainGameComponent implements OnInit {
             true,
             0.2
           );
-          this.showStage(this.stageShow());
-          const _game = this.gameService.gameDTO()!;
-
-          this.gameService.setGame(_game);
+          if(this.gameService.gameDTO()?.gameId)
+            this.showStage(this.stageShow());
+          else
+            this.showStage(1);
         }
         if (_page === 'START') {
           this.audioService.stop('placement');
@@ -206,11 +210,17 @@ export class MainGameComponent implements OnInit {
   }
 
   async newGame() {
+    console.log(this.gameService.gameDTO());
+    console.log(this.perfil());
+    let gameId ='';
+    const online = false;
+    if (this.gameService.gameDTO())
+      gameId = this.gameService.gameDTO()!.gameId;
     try {
       const resp = await this.gameService.newGame(
         this.perfil().nickname,
-        false,
-        this.gameService.gameDTO()?.gameId || ''
+        online,
+        gameId,
       );
       if (resp.codigo === 0) {
         await this.gameService.setGame(resp.datos);

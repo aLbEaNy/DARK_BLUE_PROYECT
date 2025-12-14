@@ -5,6 +5,6 @@ import { Injectable, signal } from '@angular/core';
 })
 export class PagesService {
 
-  pages = signal<string>('MENU')
+  pages = signal<string>('')
 
 }

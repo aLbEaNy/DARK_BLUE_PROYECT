@@ -24,7 +24,6 @@ public class PerfilController {
     }
     @PostMapping("/update")
     public Perfil updatePerfil(@RequestBody Perfil perfil){
-
         perfilService.savePerfil(perfil);
         return perfil;
     }

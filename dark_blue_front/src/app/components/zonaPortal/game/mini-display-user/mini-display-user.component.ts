@@ -6,7 +6,6 @@ import { NgClass } from '@angular/common';
 import { AudioService } from '../../../../services/audio/audio.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { sleep } from '../../../../utils/board-utils';
 @Component({
   selector: 'app-mini-display-user',
   imports: [NgClass],
@@ -115,10 +114,9 @@ export class MiniDisplayUserComponent {
       this.pageChange.emit('MENU');
     } else {
       this.exitGame.emit(true);
-      const _resp = await this.gameService.exitGame(this.gameService.gameDTO()?.gameId!);
-      if(_resp)
-        console.log('Se envió señal al socket de EXIT')
-      }
+      console.log('Se envió señal al socket de EXIT')
+    }
+    this.gameService.exitGame(this.gameService.gameDTO()?.gameId!);
     this.audioService.stopAll();
     this.audioService.play(
       'menu2',

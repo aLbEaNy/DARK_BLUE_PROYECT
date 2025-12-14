@@ -310,6 +310,7 @@ export class ProfileComponent {
     // Enviar al backend
     const newPerfil = await this.perfilService.updateProfile(formData);
     this.perfilService.setPerfil(newPerfil);
+    console.log('perfil cambiado..... ', newPerfil.nickname)
     this.pagesService.pages.set('OPTIONS');
   }
 }
