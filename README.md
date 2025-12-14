@@ -99,7 +99,7 @@ Funcionalidades Principales
 ## &nbsp;🔫 Sistema de Ataques Especiales
 - **x2Shot** → Activa un disparo extra cada 3 fallos
 - **MultiShot** → Activa cada 4 fallos 5 impactos simultáneos con lógica inteligente 
-- **LaserShot** → Activa cada 5 fallos un disparo aleatorio que destruye toda una fila o columna
+- **LaserShot** → Activa cada 6 fallos un disparo aleatorio que destruye toda una fila o columna
 
 #### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Incluye efectos visuales, animaciones y sonidos exclusivos.
 
