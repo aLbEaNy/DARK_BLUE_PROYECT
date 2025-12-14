@@ -165,6 +165,11 @@ Arquitectura del Proyecto
   <img src="./Docs/images/optionsPhone.png" width="40%" />
   <img src="./Docs/images/gamePhone.png" width="40%" />
 </p>
+<p>
+	## 🎥 Demo en vídeo
+
+[![Ver demo en vídeo](./Docs/images/video-preview.png)](https://youtu.be/mRckawXp6YI)
+</p>
 
 ### &nbsp;&nbsp;El proyecto utiliza:
 
