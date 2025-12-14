@@ -10,5 +10,4 @@ export default interface Stats {
   specials?: string[];
   specialSlot1?: string;
   specialSlot2?: string;
-
 }
